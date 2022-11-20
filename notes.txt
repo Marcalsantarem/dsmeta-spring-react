@@ -1,0 +1,3 @@
+Criar o projeto react a partir de template:
+
+yarn create vite frontend --template react-ts

@@ -1,11 +1,27 @@
 Criar o projeto react a partir de template:
 
 yarn create vite frontend --template react-ts
+_________________________________________________
 
 Date picker:
 
 yarn add react-datepicker@4.8.0 @types/react-datepicker@4.4.2
+__________________________________________
 
 Twilio #GQcf.Gh)4(3bHSOLKSOEWQDF
+____________________________________________
 
+AXIOS PARA ENVIAR REQUISIÇAO
 yarn add axios@0.27.2
+
+____________________________________________
+TOASTIFY -> MENSAGEM DE CONFIRMAÇÃO
+
+yarn add react-toastify@9.0.5
+
+No App.tsx:
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+<ToastContainer />

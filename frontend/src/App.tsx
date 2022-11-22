@@ -1,9 +1,14 @@
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './components/Footer';
 import Header from "./components/Header";
 import SalesCard from "./components/SalesCard";
+import alertaBackOffiline from './ts/alertaBackOffline';
 
 function App() {
+
+  alertaBackOffiline();
+
   return (
     <>
       <ToastContainer />
@@ -15,6 +20,7 @@ function App() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   )
 }

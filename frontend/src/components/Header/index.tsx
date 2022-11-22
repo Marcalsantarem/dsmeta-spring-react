@@ -7,10 +7,10 @@ function Header() {
         <>
             <header>
                 <div className="dsmeta-logo-container">
-                    <img src={icon} alt="DSMeta" />
+                    <img src={icon} alt="Logo-Marcal" />
                     <h1>DSMeta</h1>
                     <p>Desenvolvido por
-                        <a href="https://marcalsantarem.github.io"> @marcalsantarem</a>
+                        <a href="https://marcalsantarem.netlify.app"> @marcalsantarem</a>
                     </p>
                 </div>
             </header>

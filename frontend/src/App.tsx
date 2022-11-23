@@ -7,8 +7,6 @@ import alertaBackOffiline from './ts/alertaBackOffline';
 
 function App() {
 
-  alertaBackOffiline();
-
   return (
     <>
       <ToastContainer />

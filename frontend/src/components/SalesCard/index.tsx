@@ -26,10 +26,20 @@ function SalesCard() {
         const dmin = minDate.toISOString().slice(0, 10);
         const dmax = maxDate.toISOString().slice(0, 10);
 
+        {/* Comentário do seu código
         axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
             .then(response => {
                 setSales(response.data.content);
-            })
+            }) */}
+
+        console.log("Vai tentar ler");
+        axios.get(`https://mockend.com/marcalsantarem/dsmeta-spring-react/sales?amount_order=desc&limit=5`)
+            .then(response => {
+                setSales(response.data)
+        })
+
+        
+        console.log("Tentou");
 
     }, [minDate, maxDate]);
 
@@ -67,7 +77,7 @@ function SalesCard() {
                             <th>Notificar</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody> 
                         {sales.map(sale => {
                             return (
                                 <tr key={sale.id}>
@@ -87,10 +97,10 @@ function SalesCard() {
                         })
 
 
-                        }
+                        } 
 
                     </tbody>
-                </table>
+                </table> 
             </div>
         </div>
     )

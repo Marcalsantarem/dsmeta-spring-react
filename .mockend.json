@@ -1,12 +1,31 @@
 {
   "Sale": {
     "id": { "int": { "min": 1, "max": 1000 } },
-    "sellerName": { "string": {} },
+    "sellerName": { "string": [
+      "Harry Potter",
+      "Ronald Weasley",
+      "Hermione Granger",
+      "Rubeo Hagrid",
+      "Severo Snape",
+      "Tom Riddle",
+      "Alvo Dumbledore",
+      "Lilian Potter",
+      "James Potter",
+      "Dobby, the Free Elf",
+      "Draco Malfoy",
+      "Bellatrix Lestrange",
+      "Sirius Black",
+      "Reno Lupin",
+      "Alastor Moody",
+      "Luna Lovegood",
+      "Cedrico Diggory",
+      "Minerva McGonaghal"
+    ] },
     "visited": { "int": { "min": 1, "max": 1000 } },
     "deals": { "int": { "min": 1, "max": 1000 } },
     "amount": { "int": { "min": 100, "max": 10000 }},
     "date": {"dateTime": {
-      "min": "2020-01-01T00:00:00Z",
+      "min": "2022-06-01T00:00:00Z",
       "max": "2022-12-31T23:59:59Z"
     }}
   }

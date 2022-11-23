@@ -4,7 +4,7 @@
     "sellerName": { "string": {} },
     "visited": { "int": { "min": 1, "max": 1000 } },
     "deals": { "int": { "min": 1, "max": 1000 } },
-    "amount": { "double": { "min": 100.00, "max": 10000.00 }},
+    "amount": { "float": { "min": 100.00, "max": 10000.00 }},
     "date": {"dateTime": {
       "min": "2020-01-01T00:00:00Z",
       "max": "2022-12-31T23:59:59Z"

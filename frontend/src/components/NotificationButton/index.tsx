@@ -11,6 +11,9 @@ type Props = {
 }
 
 function handleClick(id : number) {
+    
+    return toast.warn("Desculpe, o envio de SMS está desabilitado no momento.");
+
     axios.get(`${BASE_URL}/sales/${id}/notification`)
             .then(response => { 
                 toast.info("SMS enviado com sucesso!");

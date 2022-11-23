@@ -13,10 +13,10 @@ import { sale } from "../../models/sale";
 
 function visitesOrDeals(sale : sale) {
     if (sale.deals > sale.visited) {
-        return sale.visited;
+        return Math.trunc(sale.visited - (sale.visited / 3));
     } else {
         return sale.deals;
-    }
+    }    
 }
 
 function SalesCard() {
@@ -34,7 +34,7 @@ function SalesCard() {
         const dmin = minDate.toISOString().slice(0, 10) + "T00:00:00Z";
         const dmax = maxDate.toISOString().slice(0, 10) + "T23:59:59Z";
 
-        {/* Comentário do seu código
+        {/* Chamada correta para o GET no backend, já filtrando no select as datas
         axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
             .then(response => {
                 setSales(response.data.content);
@@ -99,11 +99,7 @@ function SalesCard() {
                                     </td>
                                 </tr>
                             )
-                        })
-
-
-                        } 
-
+                        })}
                     </tbody>
                 </table> 
             </div>

@@ -10,36 +10,40 @@ import axios from "axios";
 import { BASE_URL } from "../../utils/request";
 import { sale } from "../../models/sale";
 
+
+function visitesOrDeals(sale : sale) {
+    if (sale.deals > sale.visited) {
+        return sale.visited;
+    } else {
+        return sale.deals;
+    }
+}
+
 function SalesCard() {
 
-    const min = new Date(new Date().setDate(new Date().getDate() - 365));
+    const min = new Date(new Date().setDate(new Date().getDate() - 90));
     const max = new Date();
 
     const [minDate, setMinDate] = useState(min);
     const [maxDate, setMaxDate] = useState(max);
 
-
     const [sales, setSales] = useState<sale[]>([]);
 
     useEffect(() => {
 
-        const dmin = minDate.toISOString().slice(0, 10);
-        const dmax = maxDate.toISOString().slice(0, 10);
+        const dmin = minDate.toISOString().slice(0, 10) + "T00:00:00Z";
+        const dmax = maxDate.toISOString().slice(0, 10) + "T23:59:59Z";
 
         {/* Comentário do seu código
         axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
             .then(response => {
                 setSales(response.data.content);
             }) */}
-
-        console.log("Vai tentar ler");
-        axios.get(`https://mockend.com/marcalsantarem/dsmeta-spring-react/sales?amount_order=desc&limit=5`)
+        
+        axios.get(`https://mockend.com/marcalsantarem/dsmeta-spring-react/sales?date_order=asc`)
             .then(response => {
                 setSales(response.data)
-        })
-
-        
-        console.log("Tentou");
+        });
 
     }, [minDate, maxDate]);
 
@@ -78,14 +82,15 @@ function SalesCard() {
                         </tr>
                     </thead>
                     <tbody> 
-                        {sales.map(sale => {
+                        {sales.filter(s => {return s.date >= minDate.toISOString() && s.date <= maxDate.toISOString()})
+                               .map(sale => {
                             return (
                                 <tr key={sale.id}>
                                     <td className="show992">{sale.id}</td>
                                     <td className="show576">{new Date(sale.date).toLocaleDateString()}</td>
                                     <td>{sale.sellerName}</td>
                                     <td className="show992">{sale.visited}</td>
-                                    <td className="show992">{sale.deals}</td>
+                                    <td className="show992">{visitesOrDeals(sale)}</td>
                                     <td>R$ {sale.amount.toFixed(2)}</td>
                                     <td>
                                     <div className="dsmeta-red-btn-container">

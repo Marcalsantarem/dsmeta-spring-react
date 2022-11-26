@@ -40,7 +40,7 @@ function SalesCard() {
                 setSales(response.data.content);
             }) */}
         
-        axios.get(`https://mockend.com/marcalsantarem/dsmeta-spring-react/sales?date_order=asc`)
+        axios.get(`https://mockend.com/marcalsantarem/fake-api-rest/sales?date_order=asc`)
             .then(response => {
                 setSales(response.data)
         });
